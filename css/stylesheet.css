@@ -1,11 +1,15 @@
-#myCanvas {
-    margin-top: 75px;
-    margin-left: 80px;
-}
-#myGame {
+
+#Page1 {
     margin-top: 100px;
-    margin-left: 227px;
+    margin-left: 200px;
 }
+#Page2 {
+    margin-top: 100px;
+    margin-left: 200px;
+}
+
+/* Go Button */
+
 .myButton {
     -moz-box-shadow: inset 0px 1px 0px 0px #a4e271;
     -webkit-box-shadow: inset 0px 1px 0px 0px #a4e271;
@@ -51,22 +55,7 @@
     position: relative;
     top: 1px;
 }
-/* Add some margin to the page and set a default font and colour */
 
-body {
-    margin: 30px;
-    font-family: "Georgia", serif;
-    line-height: 1.8em;
-    color: #333;
-}
-/* Give headings their own font */
-
-h1,
-h2,
-h3,
-h4 {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-}
 /* Main content area */
 
 #content {
@@ -79,20 +68,31 @@ h4 {
 /* Slots for final card positions */
 
 #cardSlots {
-    margin: 50px auto 0 auto;
-    background: #ddf;
+    margin: 50px auto 50px auto;
+
 }
 /* The initial pile of unsorted cards */
 
 #cardPile {
     margin: 0 auto;
 }
-#cardSlots,
+#cardSlots {
+width: 720px;
+height: 120px;
+padding: 20px;
+border: 2px solid #d5ff4a;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+}
 #cardPile {
-    width: 910px;
-    height: 120px;
-    padding: 20px;
-    border: 2px solid #333;
+width: 720px;
+height: 215px;
+padding: 20px;
+border: 2px solid #d5ff4a;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -104,13 +104,13 @@ h4 {
 
 #cardSlots div,
 #cardPile div {
-    float: left;
-    width: 58px;
-    height: 78px;
+
+    width: 80px;
+    height: 80px;
     padding: 10px;
     padding-top: 40px;
     padding-bottom: 0;
-    border: 2px solid #333;
+    border: 2px dotted #333;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -119,7 +119,7 @@ h4 {
 }
 #cardSlots div:first-child,
 #cardPile div:first-child {
-    margin-left: 0;
+    margin-left:10px;
 }
 #cardSlots div.hovered {
     background: #aaa;
@@ -138,39 +138,8 @@ h4 {
     -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
     box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
 }
-/* Individually coloured cards */
 
-#card1.correct {
-    background: red;
-}
-#card2.correct {
-    background: brown;
-}
-#card3.correct {
-    background: orange;
-}
-#card4.correct {
-    background: yellow;
-}
-#card5.correct {
-    background: green;
-}
-#card6.correct {
-    background: cyan;
-}
-#card7.correct {
-    background: blue;
-}
-#card8.correct {
-    background: indigo;
-}
-#card9.correct {
-    background: purple;
-}
-#card10.correct {
-    background: violet;
-}
-/* "You did it!" message */
+/* "Fabulous!" message */
 
 #successMessage {
     position: absolute;
@@ -179,7 +148,7 @@ h4 {
     width: 0;
     height: 0;
     z-index: 100;
-    background: #dfd;
+    background: #ec8800;
     border: 2px solid #333;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
