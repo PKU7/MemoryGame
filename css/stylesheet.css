@@ -1,11 +1,10 @@
-
-#Page1 {
+#Page1,{
     margin-top: 100px;
     margin-left: 200px;
 }
-#Page2 {
-    margin-top: 100px;
-    margin-left: 200px;
+
+#game{
+    background: url("../images/playboard.jpg"); width: 750px; height: 500px;
 }
 
 /* Go Button */
@@ -40,7 +39,7 @@
     top: 420px;
     right: 600px;
 }
-}
+
 .myButton:hover {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77a809), color-stop(1, #89c403));
     background: -moz-linear-gradient(top, #77a809 5%, #89c403 100%);
@@ -56,15 +55,7 @@
     top: 1px;
 }
 
-/* Main content area */
 
-#content {
-    margin: 80px 70px;
-    text-align: center;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
 /* Slots for final card positions */
 
 #cardSlots {
@@ -75,12 +66,13 @@
 
 #cardPile {
     margin: 0 auto;
-}
+ }
+
 #cardSlots {
-width: 720px;
+width: 650px;
 height: 120px;
 padding: 20px;
-border: 2px solid #d5ff4a;
+   border: 3px solid #d5ff4a;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -88,11 +80,12 @@ border: 2px solid #d5ff4a;
     -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
     box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
 }
+
 #cardPile {
-width: 720px;
-height: 215px;
+width: 650px;
+height: 220px;
 padding: 20px;
-border: 2px solid #d5ff4a;
+border: 3px solid #d5ff4a;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -104,7 +97,7 @@ border: 2px solid #d5ff4a;
 
 #cardSlots div,
 #cardPile div {
-
+   float: left;
     width: 80px;
     height: 80px;
     padding: 10px;
@@ -114,13 +107,15 @@ border: 2px solid #d5ff4a;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    margin: 0 0 0 10px;
+    margin: 0 20px 20px 20px;
     background: #fff;
 }
 #cardSlots div:first-child,
 #cardPile div:first-child {
     margin-left:10px;
+
 }
+
 #cardSlots div.hovered {
     background: #aaa;
 }
@@ -129,7 +124,6 @@ border: 2px solid #d5ff4a;
 }
 #cardPile div {
     background: #666;
-    color: #fff;
     font-size: 50px;
     text-shadow: 0 0 3px #000;
 }
@@ -157,3 +151,5 @@ border: 2px solid #d5ff4a;
     -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
     box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
     padding: 20px;
+}
+
