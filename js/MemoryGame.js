@@ -43,8 +43,13 @@ function init() {
         });
     }
 
-    // Create the card slots
+    // Create the card slots and added the random function
+
     var words = ['TriangleOrange.jpg', 'PawBlack.jpg', 'Bee.jpg', 'FlashGreen.jpg', 'CuteFacePink.jpg'];
+    words.sort(function () {
+        return Math.random() - .5
+    });
+
     for (var i = 0; i < 5; i++) {
         $('<div><img src="images/Myobjects/' + words[i] + '" /></div>').data('number', words[i]).appendTo('#cardSlots').droppable({
             accept: '#cardPile div',
@@ -53,10 +58,12 @@ function init() {
         });
     }
 
+
+    // Set the time out for cards to flash
     setTimeout(function () {
         var aimages = $("#cardSlots").find("img");
         for (i = 0; i < aimages.length; i++) {
-            aimages[i].src = "images/Myobjects/FaceDownTile.jpg";
+            aimages[i].src = "images/Myobjects/FaceDownCard.jpg";
         }
     }, 6000);
 
