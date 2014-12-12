@@ -1,7 +1,0 @@
-(a) Can two canvases be used in the same program?
-(b) How can we link the Go button to the 2nd canvase which would eventualy hide the original load page?
-(c) How can we make the applcation responsive?
-(d) Do we need every cdn link (bootstrap, google, jQuery, cloudflare)?
-(e) How can we insert the images in the cardPile and cardSlots?
-(f)Program faceup and facedown functions for the cards.
-(g) Look at the score program from Rich's Github Pong code.

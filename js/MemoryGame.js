@@ -1,3 +1,13 @@
+// FadeOut on Loading Page
+
+$(document).ready(function () {
+    $("#Page1").click(function () {
+        $(this).fadeOut();
+    });
+});
+
+
+// Set up the game
 
 var correctCards = 0;
 $(init);
@@ -18,34 +28,14 @@ function init() {
     $('#cardSlots').html('');
     $('#cardPile').html('');
 
-
-    // Create the card slots
-    // Declare an array of all possible figures
-    var figures = [
-    getImage("Myobjects/PinkishCritter.jpg"),
-    getImage("Myobjects/GreenFlash.jpg"),
-    getImage("Myobjects/CyanStar.jpg"),
-    getImage("Myobjects/BlackPaw.jpg"),
-    getImage("Myobjects/LadyBug.jpg"),
-];
-
-    var words = ['one', 'two', 'three', 'four', 'five'];
-    for (var i = 1; i <= 5; i++) {
-        $('<div>' + words[i - 1] + '</div>').data('number', i).appendTo('#cardSlots').droppable({
-            accept: '#cardPile div',
-            hoverClass: 'hovered',
-            drop: handleCardDrop
-        });
-    }
-
     // Create the pile of shuffled cards
-    var numbers = [1, 2, 3, 4, 5];
+    var numbers = ['PentagonGray.jpg', 'FlashGreen.jpg', 'PawBlack.jpg', 'StarCyan.jpg', 'TriangleYellow.jpg', 'Critter2_Orange.jpg', 'CritterPink.jpg', 'CuteFacePink.jpg', 'PlainFlyYellow.jpg', 'LadyBug.jpg'];
     numbers.sort(function () {
         return Math.random() - .5
     });
 
     for (var i = 0; i < 10; i++) {
-        $('<div>' + numbers[i] + '</div>').data('number', numbers[i]).attr('id', 'card' + numbers[i]).appendTo('#cardPile').draggable({
+        $('<div><img src="images/Myobjects/' + numbers[i] + '" /></div>').data('number', numbers[i]).attr('id', 'card' + numbers[i]).appendTo('#cardPile').draggable({
             containment: '#content',
             stack: '#cardPile div',
             cursor: 'move',
@@ -53,16 +43,41 @@ function init() {
         });
     }
 
-}
+    // Create the card slots and added the random function
+
+    var words = ['TriangleYellow.jpg', 'PawBlack.jpg', 'Critter2_Orange.jpg', 'FlashGreen.jpg', 'CuteFacePink.jpg'];
+    words.sort(function () {
+        return Math.random() - .5
+    });
+
+    for (var i = 0; i < 5; i++) {
+        $('<div><img src="images/Myobjects/' + words[i] + '" /></div>').data('number', words[i]).appendTo('#cardSlots').droppable({
+            accept: '#cardPile div',
+            hoverClass: 'hovered',
+            drop: handleCardDrop
+        });
+    }
+
+
+    // Set the time out for cards to flash
+    setTimeout(function () {
+        var aimages = $("#cardSlots").find("img");
+        for (i = 0; i < aimages.length; i++) {
+            aimages[i].src = "images/Myobjects/FaceDownCard.jpg";
+        }
+    }, 5000);
+
+} // end of init
+
+// Event handler for our droppables' drop events
 
 function handleCardDrop(event, ui) {
     var slotNumber = $(this).data('number');
     var cardNumber = ui.draggable.data('number');
 
     // If the card was dropped to the correct slot,
-    // change the card colour, position it directly
-    // on top of the slot, and prevent it being dragged
-    // again
+    // position it directly on top of the slot
+    // and prevent it being dragged again
 
     if (slotNumber == cardNumber) {
         ui.draggable.addClass('correct');
@@ -77,54 +92,20 @@ function handleCardDrop(event, ui) {
         correctCards++;
     }
 
+
+
     // If all the cards have been placed correctly then display a message
     // and reset the cards for another go
 
     if (correctCards == 5) {
         $('#successMessage').show();
         $('#successMessage').animate({
-            left: '380px',
-            top: '200px',
-            width: '400px',
-            height: '100px',
+            left: '580px',
+            top: '300px',
+            width: '200px',
+            height: '150px',
             opacity: 1
         });
     }
-
-}
-
-// Eventhandler function
-
-function handleCardDrop( event, ui ) {
-  var slotNumber = $(this).data( 'number' );
-  var cardNumber = ui.draggable.data( 'number' );
-
-  // If the card was dropped to the correct slot,
-  // change the card colour, position it directly
-  // on top of the slot, and prevent it being dragged
-  // again
-
-  if ( slotNumber == cardNumber ) {
-    ui.draggable.addClass( 'correct' );
-    ui.draggable.draggable( 'disable' );
-    $(this).droppable( 'disable' );
-    ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
-    ui.draggable.draggable( 'option', 'revert', false );
-    correctCards++;
-  }
-
-  // If all the cards have been placed correctly then display a message
-  // and reset the cards for another go
-
-  if ( correctCards == 5 ) {
-    $('#successMessage').show();
-    $('#successMessage').animate( {
-      left: '380px',
-      top: '200px',
-      width: '400px',
-      height: '100px',
-      opacity: 1
-    } );
-  }
 
 }
