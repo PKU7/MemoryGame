@@ -65,7 +65,7 @@ function init() {
         for (i = 0; i < aimages.length; i++) {
             aimages[i].src = "images/Myobjects/FaceDownCard.jpg";
         }
-    }, 8000);
+    }, 5000);
 
 } // end of init
 
