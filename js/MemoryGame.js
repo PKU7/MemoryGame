@@ -29,7 +29,7 @@ function init() {
     $('#cardPile').html('');
 
     // Create the pile of shuffled cards
-    var numbers = ['PentagonGray.jpg', 'FlashGreen.jpg', 'PawBlack.jpg', 'StarCyan.jpg', 'TriangleOrange.jpg', 'Bee.jpg', 'CritterDeepBrown.jpg', 'CuteFacePink.jpg', 'StarFishCyan.jpg', 'LadyBug.jpg'];
+    var numbers = ['PentagonGray.jpg', 'FlashGreen.jpg', 'PawBlack.jpg', 'StarCyan.jpg', 'TriangleYellow.jpg', 'Critter2_Orange.jpg', 'CritterPink.jpg', 'CuteFacePink.jpg', 'PlainFlyYellow.jpg', 'LadyBug.jpg'];
     numbers.sort(function () {
         return Math.random() - .5
     });
@@ -45,7 +45,7 @@ function init() {
 
     // Create the card slots and added the random function
 
-    var words = ['TriangleOrange.jpg', 'PawBlack.jpg', 'Bee.jpg', 'FlashGreen.jpg', 'CuteFacePink.jpg'];
+    var words = ['TriangleYellow.jpg', 'PawBlack.jpg', 'Critter2_Orange.jpg', 'FlashGreen.jpg', 'CuteFacePink.jpg'];
     words.sort(function () {
         return Math.random() - .5
     });
@@ -65,7 +65,7 @@ function init() {
         for (i = 0; i < aimages.length; i++) {
             aimages[i].src = "images/Myobjects/FaceDownCard.jpg";
         }
-    }, 6000);
+    }, 8000);
 
 } // end of init
 
@@ -76,9 +76,8 @@ function handleCardDrop(event, ui) {
     var cardNumber = ui.draggable.data('number');
 
     // If the card was dropped to the correct slot,
-    // change the card colour, position it directly
-    // on top of the slot, and prevent it being dragged
-    // again
+    // position it directly on top of the slot
+    // and prevent it being dragged again
 
     if (slotNumber == cardNumber) {
         ui.draggable.addClass('correct');
@@ -93,16 +92,18 @@ function handleCardDrop(event, ui) {
         correctCards++;
     }
 
+
+
     // If all the cards have been placed correctly then display a message
     // and reset the cards for another go
 
     if (correctCards == 5) {
         $('#successMessage').show();
         $('#successMessage').animate({
-            left: '380px',
-            top: '200px',
-            width: '400px',
-            height: '100px',
+            left: '580px',
+            top: '300px',
+            width: '200px',
+            height: '150px',
             opacity: 1
         });
     }
